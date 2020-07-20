@@ -12,15 +12,10 @@ import java.util.List;
 
 @Controller
 public class IndexController {
+    @Autowired
     private UserService userService;
 
-    @Autowired
-    public IndexController(UserService userService) {
-        this.userService = userService;
-    }
-
     @GetMapping("/")
-
     public String usersList(Model model) {
         this.userService.addUser(new User("s","sss", "SSS"));
         userService.addUser(new User("a","aaa", "AAA"));

@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "web")
+@ComponentScan({"DAO", "model", "service", "web"})
 @EnableTransactionManagement
 @PropertySource(value = "classpath:database.properties")
 public class HibernateConfig {
@@ -46,14 +46,14 @@ public class HibernateConfig {
         return dataSource;
     }
 
-//    @Bean
-//    public LocalSessionFactoryBean sessionFactory() {
-//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-//        sessionFactory.setDataSource(dataSource());
-//        sessionFactory.setPackagesToScan("src\\main\\java\\model");
-//        sessionFactory.setHibernateProperties(hibernateProperties());
-//        return sessionFactory;
-//    }
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan("model");
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        return sessionFactory;
+    }
 
 //    @Bean
 //    public HibernateTransactionManager transactionManager() {

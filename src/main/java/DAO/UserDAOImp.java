@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public class UserDAOImp implements UserDAO {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -36,7 +37,7 @@ public class UserDAOImp implements UserDAO {
     @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
         //language=HQL
-        return entityManager.createNamedQuery("FROM User").getResultList();
+        return entityManager.createQuery("FROM User").getResultList();
     }
 
     @Override

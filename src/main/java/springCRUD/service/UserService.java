@@ -1,6 +1,6 @@
-package service;
+package springCRUD.service;
 
-import model.User;
+import springCRUD.model.User;
 import java.util.List;
 
 public interface UserService {

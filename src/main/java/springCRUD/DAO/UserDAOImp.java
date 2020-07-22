@@ -1,6 +1,6 @@
-package DAO;
+package springCRUD.DAO;
 
-import model.User;
+import springCRUD.model.User;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,10 +34,9 @@ public class UserDAOImp implements UserDAO {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
         //language=HQL
-        return entityManager.createQuery("FROM User").getResultList();
+        return entityManager.createQuery("FROM User", User.class).getResultList();
     }
 
     @Override

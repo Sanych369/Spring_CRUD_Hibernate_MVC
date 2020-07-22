@@ -1,6 +1,6 @@
-package DAO;
+package springCRUD.DAO;
 
-import model.User;
+import springCRUD.model.User;
 import java.util.List;
 
 public interface UserDAO {

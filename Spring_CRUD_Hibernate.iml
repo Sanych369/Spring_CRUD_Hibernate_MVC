@@ -1,2 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4" />
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Hibernate" />
+        <datasource-mapping>
+          <factory-entry name="Spring_CRUD_Hibernate" value="5fe16f60-c56d-4923-ba90-4b8e59aa8821" />
+          <factory-entry name="entityManagerFactory" value="5fe16f60-c56d-4923-ba90-4b8e59aa8821" />
+        </datasource-mapping>
+        <naming-strategy-map />
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="WebConfig" removed="false">
+          <dependency>initializer springCRUD.web.config.AppInit servlet context</dependency>
+          <file>file://$MODULE_DIR$/src/main/java/springCRUD/web/config/WebConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/springCRUD/web/config/HibernateConfig.java</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+  </component>
+    <component name="FacetManager">
+      <facet type="hibernate" name="Hibernate">
+        <configuration>
+          <datasource-map />
+          <naming-strategy-map />
+        </configuration>
+      </facet>
+    </component>
+</module>

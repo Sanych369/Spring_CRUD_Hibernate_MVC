@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Sanych
-  Date: 22.07.2020
-  Time: 20:32
+  Date: 23.07.2020
+  Time: 22:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,7 +10,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>БД Пользователей - Результат поиска</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>БД Пользователей - Пользователь добавлен</title>
 </head>
 <body>
 <div style="text-align: center;">
@@ -23,14 +24,14 @@
 </div>
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2>Найден пользователь:</h2></caption>
+        <caption><h2>Добавлен пользователь:</h2></caption>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Password</th>
             <th>Email</th>
         </tr>
-        <c:forEach var="user" items="${findUser}">
+        <c:forEach var="user" items="${addedUser}">
             <tr>
                 <td><c:out value="${user.id}"/></td>
                 <td><c:out value="${user.name}"/></td>

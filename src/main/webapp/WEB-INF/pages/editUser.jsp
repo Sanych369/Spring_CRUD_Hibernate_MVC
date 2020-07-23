@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Sanych
@@ -16,11 +17,11 @@
     <h2>
         <form action="/" method="GET">
             <input type="submit" value="List All Users">
-        </form> &nbsp;&nbsp;&nbsp;
+        </form>
     </h2>
 </div>
 <div align="center">
-    <form action="/editUser" method="POST">
+    <form action="${pageContext.request.contextPath}/update" method="POST">
         <table border="1" cellpadding="5">
             <caption>
                 <h2>
@@ -44,14 +45,6 @@
                 </td>
             </tr>
             <tr>
-                <th>User Role:</th>
-                <td>
-                    <input type="text" name="role" size="45"
-                           value="<c:out value='${user.role}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
                 <th>User Password:</th>
                 <td>
                     <input type="text" name="password" size="45"
@@ -60,8 +53,18 @@
                 </td>
             </tr>
             <tr>
+                <th>User Email:</th>
+                <td>
+                    <input type="text" name="email" size="45"
+                           value="<c:out value='${user.email}' />"
+                    />
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Сохранить изменения"/>
+                    <form action="${pageContext.request.contextPath}/users" method="GET">
+                        <input type="submit" value="Сохранить изменения"/>
+                    </form>
                 </td>
             </tr>
         </table>

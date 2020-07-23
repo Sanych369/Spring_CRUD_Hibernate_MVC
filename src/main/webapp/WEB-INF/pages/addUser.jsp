@@ -5,27 +5,28 @@
   Time: 20:30
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>БД Пользователей - добавление</title>
+    <title>БД Пользователей - Добавление пользователя</title>
 </head>
 <body>
 <div style="text-align: center;">
-    <h1>Вернуться на страницу списка пользователей</h1>
+    <h2>Вернуться на страницу списка пользователей</h2>
     <h2>
-        <form action="/users" method="GET">
+        <form action="${pageContext.request.contextPath}/users" method="GET">
             <input type="submit" value="Список пользователей">
-        </form> &nbsp;&nbsp;&nbsp;
+        </form>
     </h2>
 </div>
 <div align="center">
-    <form action="/add" method="POST" accept-charset="UTF-8">
+    <form action="/add" method="GET" accept-charset="UTF-8">
         <table border="1" cellpadding="5">
             <caption>
                 <h2>
-                    Добавить нового пользователя
+                    Добавление нового пользователя:
                 </h2>
             </caption>
             <tr>
@@ -50,7 +51,7 @@
                 </td>
             </tr>
             <td colspan="2" align="center">
-                <input type="submit" value="Добавить пользователя"/>
+                <input type="submit" value="Добавить"/>
             </td>
             </tr>
         </table>

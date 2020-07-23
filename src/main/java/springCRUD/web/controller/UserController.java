@@ -18,7 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping({"/", "index"})
     public String index() {
         System.out.println("ENTER");
         return "index";
@@ -29,25 +29,27 @@ public class UserController {
         model.addAttribute("userList", userService.getAllUsers());
         return "allUsers";
     }
+
     @PostMapping("/searchForm")
     public String search() {
         return "searchUser";
     }
+
     @GetMapping("/findUser")
     public String findUserByID(ModelMap model, Long id) {
-           model.addAttribute("findUser", userService.getUserById(id));
+           model.addAttribute("findUser", userService.getUserListById(id));
         return "findUser";
     }
 
-    @GetMapping("/addForm")
-    public String viewAddedUser() {
+    @PostMapping("/addForm")
+    public String addUser() {
         return "addUser";
     }
 
-    @PostMapping("/add")
-    public String addUser(User user) {
+    @GetMapping("/add")
+    public String viewAddedUser(User user) {
         userService.addUser(user);
-        return "allUsers";
+        return "addedUser";
     }
 
     @PostMapping("/delete")
@@ -61,9 +63,10 @@ public class UserController {
         model.addAttribute("editUser", user);
         return "editUser";
     }
+
     @PostMapping("/update")
     public String updateUser(User user) {
         userService.updateUser(user);
-        return "allUsers";
+        return usersList(new ModelMap());
     }
 }

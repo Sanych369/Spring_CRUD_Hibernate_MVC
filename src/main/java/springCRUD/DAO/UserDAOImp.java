@@ -14,23 +14,17 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public void addUser(User user) {
-        entityManager.getTransaction().begin();
         entityManager.persist(user);
-        entityManager.getTransaction().commit();
     }
 
     @Override
     public void deleteUser(Long id) {
-        entityManager.getTransaction().begin();
         entityManager.remove(getUserById(id));
-        entityManager.getTransaction().commit();
     }
 
     @Override
     public void updateUser(User user) {
-        entityManager.getTransaction().begin();
         entityManager.merge(user);
-        entityManager.getTransaction().commit();
     }
 
     @Override
@@ -40,7 +34,12 @@ public class UserDAOImp implements UserDAO {
     }
 
     @Override
+    public List<User> getUserListById(Long id) {
+       return entityManager.createQuery("FROM User WHERE id =" + id, User.class).getResultList();
+    }
+
+    @Override
     public User getUserById(Long id) {
-        return entityManager.find(User.class, id);
+       return entityManager.find(User.class, id);
     }
 }

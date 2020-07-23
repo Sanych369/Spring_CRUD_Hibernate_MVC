@@ -40,7 +40,13 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
+    public List<User> getUserListById(Long id) {
+        return userDAO.getUserListById(id);
+    }
+
+    @Override
+    @Transactional
     public User getUserById(Long id) {
-        return userDAO.getUserById(id);
+       return userDAO.getUserById(id);
     }
 }

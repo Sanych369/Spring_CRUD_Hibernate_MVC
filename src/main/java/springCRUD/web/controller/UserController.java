@@ -47,14 +47,16 @@ public class UserController {
     }
 
     @GetMapping("/add")
-    public String viewAddedUser(User user) {
+    public String viewAddedUser(User user, ModelMap model) {
         userService.addUser(user);
-        return "addedUser";
+        model.addAttribute("userList", userService.getAllUsers());
+        return "allUsers";
     }
 
     @PostMapping("/delete")
-    public String deleteUser(@RequestParam @NonNull Long id) {
+    public String deleteUser(@RequestParam @NonNull Long id, ModelMap model) {
         userService.deleteUser(id);
+        model.addAttribute("userList", userService.getAllUsers());
         return "allUsers";
     }
 
@@ -65,8 +67,14 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String updateUser(User user) {
+    public String updateUser(User user, ModelMap model) {
         userService.updateUser(user);
-        return usersList(new ModelMap());
+        model.addAttribute("userList", userService.getAllUsers());
+        return "allUsers";
+    }
+
+    @GetMapping("/aaa")
+    public String aaa(){
+        return "";
     }
 }

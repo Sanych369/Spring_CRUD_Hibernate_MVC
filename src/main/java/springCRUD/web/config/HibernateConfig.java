@@ -31,9 +31,9 @@ public class HibernateConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty("jdbc.driverClassName")));
-        dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-        dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
-        dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+        dataSource.setUrl(environment.getProperty("jdbc.url"));
+        dataSource.setUsername(environment.getProperty("jdbc.username"));
+        dataSource.setPassword(environment.getProperty("jdbc.password"));
         return dataSource;
     }
 
@@ -48,7 +48,7 @@ public class HibernateConfig {
         final Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         hibernateProperties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
-        hibernateProperties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
+        hibernateProperties.put("spring.jpa.hibernate.ddl-auto", environment.getProperty("spring.jpa.hibernate.ddl-auto"));
         return hibernateProperties;
     }
 
@@ -57,7 +57,7 @@ public class HibernateConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactory =
                 new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setPackagesToScan("springCRUD.model");
+        entityManagerFactory.setPackagesToScan("springCRUD/model");
 
         JpaVendorAdapter jpaAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactory.setJpaVendorAdapter(jpaAdapter);
